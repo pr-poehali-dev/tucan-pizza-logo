@@ -5,6 +5,7 @@ const LOGO_SIMPLE_URL = "https://cdn.poehali.dev/projects/b1c2d86e-d177-4b8b-a9b
 const LOGO_CHIBI_URL = "https://cdn.poehali.dev/projects/b1c2d86e-d177-4b8b-a9bc-303b99d73eb3/files/6a0bda4f-99b3-4022-90b4-174aea6d411a.jpg";
 const LOGO_CHEF_URL = "https://cdn.poehali.dev/projects/b1c2d86e-d177-4b8b-a9bc-303b99d73eb3/files/5a6037ec-5e91-4785-a24d-1c182d8fc976.jpg";
 const LOGO_TOUCAN_PIZZA_URL = "https://cdn.poehali.dev/projects/b1c2d86e-d177-4b8b-a9bc-303b99d73eb3/files/e0603f2b-de29-4ecb-807b-55374a6b686c.jpg";
+const LOGO_CUTE_URL = "https://cdn.poehali.dev/projects/b1c2d86e-d177-4b8b-a9bc-303b99d73eb3/files/eb08db7e-fb5e-492c-a4c5-0c5d7f2d8324.jpg";
 
 const CONFETTI_COLORS = ["#E8211A", "#FF6B35", "#FFD700", "#2ECC40", "#FF69B4", "#00BFFF"];
 
@@ -475,6 +476,66 @@ export default function Index() {
         </div>
 
       </div>
+
+        {/* Упрощённый милый логотип */}
+        <div
+          className={`mt-12 mb-12 w-full max-w-3xl transition-all duration-700 ${loaded ? "opacity-100" : "opacity-0"}`}
+          style={{ transitionDelay: "2s" }}
+        >
+          <div className="flex items-center gap-3 justify-center mb-6">
+            <div className="h-px flex-1 rounded" style={{ background: "#FFD700", maxWidth: 80 }} />
+            <p className="font-nunito text-center text-lg" style={{ color: "#7B4A1A", fontWeight: 700 }}>
+              Упрощённый милый логотип ✨
+            </p>
+            <div className="h-px flex-1 rounded" style={{ background: "#FFD700", maxWidth: 80 }} />
+          </div>
+
+          <div className="flex flex-col items-center gap-8">
+            {/* Крупный показ */}
+            <div
+              className="rounded-[2.5rem] p-8 flex flex-col items-center gap-4 shadow-2xl transition-transform duration-300 hover:scale-105 animate-float"
+              style={{
+                background: "linear-gradient(145deg, #FFFDE7, #FFF9C4)",
+                border: "4px solid #FFD700",
+                width: "clamp(240px, 55vw, 360px)",
+                animationDelay: "0.4s",
+              }}
+            >
+              <div className="w-52 h-52 rounded-3xl overflow-hidden shadow-xl">
+                <img src={LOGO_CUTE_URL} alt="милый тукан логотип" className="w-full h-full object-cover" />
+              </div>
+              <span className="font-pacifico text-3xl" style={{ color: "#E8211A" }}>Тукан Пицца</span>
+              <div className="flex gap-2">
+                {["🍕","⭐","🦜"].map((e, i) => (
+                  <span key={i} className="text-xl animate-bounce-slow" style={{ animationDelay: `${i * 0.2}s` }}>{e}</span>
+                ))}
+              </div>
+            </div>
+
+            {/* Варианты фонов */}
+            <div className="grid grid-cols-4 gap-3 w-full">
+              {[
+                { bg: "#FFFFFF", label: "Белый", border: "2px solid #e5e7eb", textColor: "#E8211A", subColor: "#7B4A1A" },
+                { bg: "#FFD700", label: "Жёлтый", border: undefined, textColor: "#1A0A00", subColor: "rgba(0,0,0,0.5)" },
+                { bg: "#E8211A", label: "Красный", border: undefined, textColor: "#FFD700", subColor: "rgba(255,255,255,0.8)" },
+                { bg: "#1A0A00", label: "Тёмный", border: undefined, textColor: "#FFD700", subColor: "rgba(255,255,255,0.6)" },
+              ].map((v, i) => (
+                <div
+                  key={i}
+                  className="rounded-2xl p-3 flex flex-col items-center gap-2 shadow-md transition-transform duration-200 hover:scale-105 cursor-pointer"
+                  style={{ background: v.bg, border: v.border }}
+                >
+                  <div className="w-14 h-14 rounded-xl overflow-hidden shadow">
+                    <img src={LOGO_CUTE_URL} alt="милый тукан" className="w-full h-full object-cover" />
+                  </div>
+                  <span className="font-pacifico text-xs leading-tight text-center" style={{ color: v.textColor }}>Тукан Пицца</span>
+                  <span className="font-nunito text-xs" style={{ color: v.subColor }}>{v.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
     </div>
   );
 }
