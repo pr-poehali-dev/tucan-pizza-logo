@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 
 const LOGO_URL = "https://cdn.poehali.dev/projects/b1c2d86e-d177-4b8b-a9bc-303b99d73eb3/files/c4fa33d5-95c4-4c11-a208-8337dc2ced27.jpg";
 const LOGO_SIMPLE_URL = "https://cdn.poehali.dev/projects/b1c2d86e-d177-4b8b-a9bc-303b99d73eb3/files/1350b041-113c-482f-ade7-b84e64b2c483.jpg";
+const LOGO_CHIBI_URL = "https://cdn.poehali.dev/projects/b1c2d86e-d177-4b8b-a9bc-303b99d73eb3/files/6a0bda4f-99b3-4022-90b4-174aea6d411a.jpg";
+const LOGO_CHEF_URL = "https://cdn.poehali.dev/projects/b1c2d86e-d177-4b8b-a9bc-303b99d73eb3/files/5a6037ec-5e91-4785-a24d-1c182d8fc976.jpg";
 
 const CONFETTI_COLORS = ["#E8211A", "#FF6B35", "#FFD700", "#2ECC40", "#FF69B4", "#00BFFF"];
 
@@ -316,6 +318,99 @@ export default function Index() {
             ))}
           </div>
         </div>
+
+        {/* Вариант 2: Чиби — тукан на пицце */}
+        <div
+          className={`mt-12 w-full max-w-3xl transition-all duration-700 ${loaded ? "opacity-100" : "opacity-0"}`}
+          style={{ transitionDelay: "1.4s" }}
+        >
+          <div className="flex items-center gap-3 justify-center mb-6">
+            <div className="h-px flex-1 rounded" style={{ background: "#2ECC40", maxWidth: 80 }} />
+            <p className="font-nunito text-center text-lg" style={{ color: "#7B4A1A", fontWeight: 700 }}>
+              Вариант 2 — Тукан на пицце 🍕
+            </p>
+            <div className="h-px flex-1 rounded" style={{ background: "#2ECC40", maxWidth: 80 }} />
+          </div>
+          <div className="flex flex-col md:flex-row gap-6 items-center justify-center">
+            <div
+              className="rounded-3xl p-6 shadow-xl flex flex-col items-center gap-3 transition-transform duration-200 hover:scale-105 animate-float"
+              style={{ background: "#F0FFF4", border: "3px solid #2ECC40", width: 220 }}
+            >
+              <div className="w-40 h-40 rounded-2xl overflow-hidden shadow-lg">
+                <img src={LOGO_CHIBI_URL} alt="тукан на пицце" className="w-full h-full object-cover" />
+              </div>
+              <span className="font-pacifico text-lg" style={{ color: "#1A0A00" }}>Тукан Пицца</span>
+              <span className="font-nunito text-xs" style={{ color: "#27AE60" }}>Тукан на пицце</span>
+            </div>
+            <div className="grid grid-cols-2 gap-4 flex-1">
+              {[
+                { bg: "#FFFFFF", label: "Белый", border: "2px solid #e5e7eb", textColor: "#1A0A00", subColor: "#7B4A1A" },
+                { bg: "#2ECC40", label: "Зелёный", border: undefined, textColor: "#FFFFFF", subColor: "rgba(255,255,255,0.8)" },
+                { bg: "#1A0A00", label: "Тёмный", border: undefined, textColor: "#FFD700", subColor: "rgba(255,255,255,0.6)" },
+                { bg: "#FFD700", label: "Жёлтый", border: undefined, textColor: "#1A0A00", subColor: "#7B4A1A" },
+              ].map((v, i) => (
+                <div
+                  key={i}
+                  className="rounded-2xl p-3 flex flex-col items-center gap-2 shadow-md transition-transform duration-200 hover:scale-105"
+                  style={{ background: v.bg, border: v.border }}
+                >
+                  <div className="w-14 h-14 rounded-xl overflow-hidden shadow">
+                    <img src={LOGO_CHIBI_URL} alt="лого" className="w-full h-full object-cover" />
+                  </div>
+                  <span className="font-pacifico text-xs" style={{ color: v.textColor }}>Тукан Пицца</span>
+                  <span className="font-nunito text-xs" style={{ color: v.subColor }}>{v.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Вариант 3: Шеф-повар с подмигиванием */}
+        <div
+          className={`mt-12 mb-8 w-full max-w-3xl transition-all duration-700 ${loaded ? "opacity-100" : "opacity-0"}`}
+          style={{ transitionDelay: "1.6s" }}
+        >
+          <div className="flex items-center gap-3 justify-center mb-6">
+            <div className="h-px flex-1 rounded" style={{ background: "#E8211A", maxWidth: 80 }} />
+            <p className="font-nunito text-center text-lg" style={{ color: "#7B4A1A", fontWeight: 700 }}>
+              Вариант 3 — Шеф-тукан 👨‍🍳
+            </p>
+            <div className="h-px flex-1 rounded" style={{ background: "#E8211A", maxWidth: 80 }} />
+          </div>
+          <div className="flex flex-col md:flex-row gap-6 items-center justify-center">
+            <div
+              className="rounded-3xl p-6 shadow-xl flex flex-col items-center gap-3 transition-transform duration-200 hover:scale-105 animate-float"
+              style={{ background: "#FFF5F5", border: "3px solid #E8211A", width: 220, animationDelay: "0.5s" }}
+            >
+              <div className="w-40 h-40 rounded-2xl overflow-hidden shadow-lg">
+                <img src={LOGO_CHEF_URL} alt="тукан шеф" className="w-full h-full object-cover" />
+              </div>
+              <span className="font-pacifico text-lg" style={{ color: "#E8211A" }}>Тукан Пицца</span>
+              <span className="font-nunito text-xs" style={{ color: "#7B4A1A" }}>Шеф-повар</span>
+            </div>
+            <div className="grid grid-cols-2 gap-4 flex-1">
+              {[
+                { bg: "#FFFFFF", label: "Белый", border: "2px solid #e5e7eb", textColor: "#E8211A", subColor: "#7B4A1A" },
+                { bg: "#E8211A", label: "Красный", border: undefined, textColor: "#FFFFFF", subColor: "rgba(255,255,255,0.8)" },
+                { bg: "#FF6B35", label: "Оранжевый", border: undefined, textColor: "#FFFFFF", subColor: "rgba(255,255,255,0.8)" },
+                { bg: "#1A0A00", label: "Тёмный", border: undefined, textColor: "#FF6B35", subColor: "rgba(255,255,255,0.6)" },
+              ].map((v, i) => (
+                <div
+                  key={i}
+                  className="rounded-2xl p-3 flex flex-col items-center gap-2 shadow-md transition-transform duration-200 hover:scale-105"
+                  style={{ background: v.bg, border: v.border }}
+                >
+                  <div className="w-14 h-14 rounded-xl overflow-hidden shadow">
+                    <img src={LOGO_CHEF_URL} alt="лого шеф" className="w-full h-full object-cover" />
+                  </div>
+                  <span className="font-pacifico text-xs" style={{ color: v.textColor }}>Тукан Пицца</span>
+                  <span className="font-nunito text-xs" style={{ color: v.subColor }}>{v.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   );
