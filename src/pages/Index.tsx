@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import ToucanPizzaLogo from "@/components/ToucanPizzaLogo";
 
 const LOGO_URL = "https://cdn.poehali.dev/projects/b1c2d86e-d177-4b8b-a9bc-303b99d73eb3/files/c4fa33d5-95c4-4c11-a208-8337dc2ced27.jpg";
 const LOGO_SIMPLE_URL = "https://cdn.poehali.dev/projects/b1c2d86e-d177-4b8b-a9bc-303b99d73eb3/files/1350b041-113c-482f-ade7-b84e64b2c483.jpg";
@@ -595,72 +596,72 @@ export default function Index() {
           </div>
         </div>
 
-        {/* 🔥 Яркий детский геометрический логотип */}
+        {/* Векторный логотип из простых фигур */}
         <div
           className={`mt-12 mb-16 w-full max-w-3xl px-6 transition-all duration-700 ${loaded ? "opacity-100" : "opacity-0"}`}
           style={{ transitionDelay: "2.4s" }}
         >
           <div className="flex items-center gap-3 justify-center mb-6">
-            <div className="h-px flex-1 rounded" style={{ background: "#FF0000", maxWidth: 80 }} />
+            <div className="h-px flex-1 rounded" style={{ background: "#FF6B35", maxWidth: 80 }} />
             <p className="font-nunito text-center text-lg" style={{ color: "#7B4A1A", fontWeight: 700 }}>
-              🔥 Яркий детский вариант
+              Векторный из простых фигур
             </p>
-            <div className="h-px flex-1 rounded" style={{ background: "#FF0000", maxWidth: 80 }} />
+            <div className="h-px flex-1 rounded" style={{ background: "#FF6B35", maxWidth: 80 }} />
           </div>
 
-          <div className="flex justify-center mb-6">
+          <div className="flex flex-col md:flex-row gap-8 items-center justify-center mb-8">
             <div
-              className="relative rounded-[2rem] p-8 flex flex-col items-center gap-5 shadow-2xl transition-transform duration-300 hover:scale-105 animate-float overflow-hidden"
-              style={{
-                background: "linear-gradient(135deg, #FF0000 0%, #FF6B00 40%, #FFE600 100%)",
-                border: "5px solid #1A0A00",
-                width: "clamp(240px, 70vw, 380px)",
-                animationDelay: "0.3s",
-              }}
+              className="flex flex-col items-center gap-4 rounded-3xl p-8 shadow-2xl transition-transform duration-300 hover:scale-105 animate-float"
+              style={{ background: "#FFFFFF", border: "3px solid #1A0A00", width: "clamp(220px, 50vw, 320px)", animationDelay: "0.3s" }}
             >
-              <div className="absolute top-[-30px] right-[-30px] w-24 h-24 rounded-full opacity-20" style={{ background: "#FFE600" }} />
-              <div className="absolute bottom-[-20px] left-[-20px] w-20 h-20 rounded-full opacity-20" style={{ background: "#FFFFFF" }} />
+              <ToucanPizzaLogo size={220} variant="color" />
+              <span className="font-pacifico text-2xl" style={{ color: "#1A0A00" }}>Тукан Пицца</span>
+              <span className="font-nunito text-sm" style={{ color: "#7B4A1A" }}>Цветной — белый фон</span>
+            </div>
 
-              <div className="w-52 h-52 rounded-2xl overflow-hidden shadow-2xl" style={{ border: "4px solid #1A0A00" }}>
-                <img
-                  src="https://cdn.poehali.dev/projects/b1c2d86e-d177-4b8b-a9bc-303b99d73eb3/files/14c5e59f-60d3-4a15-a815-e38bb5dae148.jpg"
-                  alt="яркий тукан логотип"
-                  className="w-full h-full object-contain bg-white"
-                />
-              </div>
+            <div
+              className="flex flex-col items-center gap-4 rounded-3xl p-8 shadow-2xl transition-transform duration-300 hover:scale-105 animate-float"
+              style={{ background: "#1A0A00", border: "3px solid #FF6B35", width: "clamp(220px, 50vw, 320px)", animationDelay: "0.6s" }}
+            >
+              <ToucanPizzaLogo size={220} variant="color" />
+              <span className="font-pacifico text-2xl" style={{ color: "#FF6B35" }}>Тукан Пицца</span>
+              <span className="font-nunito text-sm" style={{ color: "rgba(255,255,255,0.6)" }}>Цветной — тёмный фон</span>
+            </div>
+          </div>
 
-              <div className="flex flex-col items-center gap-1">
-                <span className="font-pacifico text-3xl" style={{ color: "#FFFFFF", textShadow: "3px 3px 0px #1A0A00" }}>
-                  Тукан Пицца
-                </span>
-                <div className="flex gap-1 text-2xl">
-                  {["🍕","🦜","⭐","🎉"].map((e, i) => (
-                    <span key={i} className="animate-bounce-slow" style={{ animationDelay: `${i * 0.15}s` }}>{e}</span>
-                  ))}
-                </div>
-              </div>
+          <div className="flex flex-col md:flex-row gap-8 items-center justify-center mb-8">
+            <div
+              className="flex flex-col items-center gap-4 rounded-3xl p-8 shadow-2xl transition-transform duration-300 hover:scale-105"
+              style={{ background: "#FFFFFF", border: "2px solid #e5e7eb", width: "clamp(200px, 45vw, 280px)" }}
+            >
+              <ToucanPizzaLogo size={180} variant="black" />
+              <span className="font-pacifico text-xl" style={{ color: "#1A0A00" }}>Тукан Пицца</span>
+              <span className="font-nunito text-xs" style={{ color: "#7B4A1A" }}>Монохром — чёрный</span>
+            </div>
+
+            <div
+              className="flex flex-col items-center gap-4 rounded-3xl p-8 shadow-2xl transition-transform duration-300 hover:scale-105"
+              style={{ background: "#1A0A00", border: "2px solid #333", width: "clamp(200px, 45vw, 280px)" }}
+            >
+              <ToucanPizzaLogo size={180} variant="white" />
+              <span className="font-pacifico text-xl" style={{ color: "#FFFFFF" }}>Тукан Пицца</span>
+              <span className="font-nunito text-xs" style={{ color: "rgba(255,255,255,0.6)" }}>Монохром — белый</span>
             </div>
           </div>
 
           <div className="grid grid-cols-4 gap-3">
             {[
-              { bg: "#FF0000", label: "Красный", textColor: "#FFE600", subColor: "rgba(255,255,255,0.8)" },
-              { bg: "#FF6B00", label: "Оранжевый", textColor: "#FFFFFF", subColor: "rgba(255,255,255,0.8)" },
-              { bg: "#FFE600", label: "Жёлтый", textColor: "#1A0A00", subColor: "rgba(0,0,0,0.55)" },
-              { bg: "#00C020", label: "Зелёный", textColor: "#FFE600", subColor: "rgba(255,255,255,0.8)" },
+              { bg: "#E8211A", label: "Красный", textColor: "#FFD700", subColor: "rgba(255,255,255,0.8)" },
+              { bg: "#FF6B35", label: "Оранжевый", textColor: "#FFFFFF", subColor: "rgba(255,255,255,0.8)" },
+              { bg: "#FFD700", label: "Жёлтый", textColor: "#1A0A00", subColor: "rgba(0,0,0,0.55)" },
+              { bg: "#2ECC40", label: "Зелёный", textColor: "#FFFFFF", subColor: "rgba(255,255,255,0.8)" },
             ].map((v, i) => (
               <div
                 key={i}
-                className="rounded-2xl p-3 flex flex-col items-center gap-2 shadow-lg transition-transform duration-200 hover:scale-110 cursor-pointer"
+                className="rounded-2xl p-4 flex flex-col items-center gap-2 shadow-lg transition-transform duration-200 hover:scale-110 cursor-pointer"
                 style={{ background: v.bg, border: "3px solid #1A0A00" }}
               >
-                <div className="w-14 h-14 rounded-xl overflow-hidden shadow bg-white">
-                  <img
-                    src="https://cdn.poehali.dev/projects/b1c2d86e-d177-4b8b-a9bc-303b99d73eb3/files/14c5e59f-60d3-4a15-a815-e38bb5dae148.jpg"
-                    alt="яркий тукан"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
+                <ToucanPizzaLogo size={64} variant="color" />
                 <span className="font-pacifico text-xs leading-tight text-center" style={{ color: v.textColor }}>Тукан Пицца</span>
                 <span className="font-nunito text-xs" style={{ color: v.subColor }}>{v.label}</span>
               </div>
