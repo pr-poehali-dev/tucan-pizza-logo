@@ -5,92 +5,133 @@ interface ToucanPizzaLogoProps {
 }
 
 export default function ToucanPizzaLogo({ size = 200, className = "", variant = "color" }: ToucanPizzaLogoProps) {
-  const black = variant === "white" ? "#FFFFFF" : "#1A0A00";
-  const white = variant === "white" ? "#1A0A00" : "#FFFFFF";
-  const beakTop = variant === "black" ? "#1A0A00" : variant === "white" ? "#FFFFFF" : "#FFA600";
-  const beakBottom = variant === "black" ? "#1A0A00" : variant === "white" ? "#FFFFFF" : "#FF6B35";
-  const beakTip = variant === "black" ? "#1A0A00" : variant === "white" ? "#FFFFFF" : "#E8211A";
-  const eye = variant === "white" ? "#1A0A00" : "#FFFFFF";
-  const eyePupil = variant === "white" ? "#FFFFFF" : "#1A0A00";
-  const pizzaBase = variant === "black" ? "#1A0A00" : variant === "white" ? "#FFFFFF" : "#FFD700";
-  const pizzaCrust = variant === "black" ? "#1A0A00" : variant === "white" ? "#FFFFFF" : "#E8A317";
-  const pepperoni = variant === "black" ? (variant === "black" ? "#555" : "#1A0A00") : variant === "white" ? "rgba(255,255,255,0.5)" : "#E8211A";
+  const isBlack = variant === "black";
+  const isWhite = variant === "white";
+
+  const dark = isWhite ? "#FFFFFF" : "#1A0A00";
+  const light = isWhite ? "#1A0A00" : "#FFFFFF";
+  const orange = isBlack ? dark : isWhite ? light : "#FFA600";
+  const magenta = isBlack ? dark : isWhite ? light : "#C2185B";
+  const tipCol = isBlack ? dark : isWhite ? light : dark;
+  const cheese = isBlack ? dark : isWhite ? light : "#FFD700";
+  const crustCol = isBlack ? dark : isWhite ? light : "#D4941A";
+  const topping = isBlack ? "#555" : isWhite ? "rgba(255,255,255,0.4)" : "#E8211A";
 
   return (
     <svg
-      viewBox="0 0 300 300"
+      viewBox="0 0 200 220"
       width={size}
-      height={size}
+      height={size * 1.1}
       className={className}
       xmlns="http://www.w3.org/2000/svg"
     >
-      {/* Тело тукана — большой чёрный полукруг/капля */}
-      <ellipse cx="130" cy="165" rx="75" ry="95" fill={black} />
+      {/*
+        Минималистичный тукан как на примерах:
+        - Крупная С-образная чёрная форма (тело + голова)
+        - Негативное белое пространство внутри (грудка/лицо)
+        - Массивный клюв из 2 цветных секций
+        - Глаз-точка
+        - Кусок пиццы в клюве / лапке
+      */}
 
-      {/* Белое «брюшко» — вырез */}
-      <ellipse cx="138" cy="140" rx="38" ry="52" fill={white} />
-
-      {/* Голова — чёрный круг сверху */}
-      <circle cx="150" cy="90" r="52" fill={black} />
-
-      {/* Белая маска на лице */}
-      <ellipse cx="155" cy="100" rx="28" ry="32" fill={white} />
-
-      {/* Клюв — три секции из простых фигур */}
-      {/* Верхняя часть клюва — жёлто-оранжевая */}
+      {/* === ТЕЛО — единая С-образная форма === */}
       <path
-        d="M 175 85 Q 230 78 255 95 Q 245 88 175 95 Z"
-        fill={beakTop}
+        d={`
+          M 88 16
+          C 48 16, 18 52, 18 98
+          C 18 144, 42 172, 66 184
+          C 58 190, 54 198, 60 204
+          C 66 210, 76 206, 78 198
+          L 82 188
+          C 92 192, 100 190, 104 182
+          C 108 174, 104 162, 92 158
+          C 74 152, 56 136, 56 108
+          C 56 76, 74 56, 100 56
+          L 108 56
+          C 132 22, 112 16, 88 16
+          Z
+        `}
+        fill={dark}
       />
-      {/* Средняя часть клюва */}
+
+      {/* Голова — верх с округлением */}
       <path
-        d="M 175 95 Q 245 88 255 95 Q 248 100 175 103 Z"
-        fill={beakBottom}
+        d={`
+          M 88 12
+          C 120 12, 142 32, 142 64
+          C 142 90, 128 108, 106 112
+          L 100 112
+          L 100 56
+          C 74 56, 56 76, 56 108
+          C 56 122, 60 132, 68 140
+          C 50 130, 40 114, 40 96
+          C 40 48, 60 12, 88 12
+          Z
+        `}
+        fill={dark}
       />
-      {/* Кончик клюва */}
+
+      {/* Белое пространство — грудка (негатив) */}
       <path
-        d="M 248 90 Q 260 95 248 100 Z"
-        fill={beakTip}
+        d={`
+          M 94 52
+          C 72 54, 58 74, 58 100
+          C 58 126, 72 144, 90 148
+          L 82 148
+          C 60 142, 44 122, 44 98
+          C 44 66, 64 46, 94 44
+          Z
+        `}
+        fill={light}
       />
 
       {/* Глаз */}
-      <circle cx="162" cy="93" r="9" fill={eye} />
-      <circle cx="164" cy="91" r="4.5" fill={eyePupil} />
-      {variant === "color" && <circle cx="166" cy="89" r="1.8" fill="#FFFFFF" />}
+      <circle cx="110" cy="68" r="9" fill={light} />
+      <circle cx="113" cy="66" r="4.5" fill={dark} />
+      {variant === "color" && <circle cx="115" cy="64" r="1.8" fill="#FFF" />}
 
-      {/* Крыло — вытянутый эллипс */}
-      <ellipse cx="105" cy="190" rx="28" ry="50" fill={black} transform="rotate(-15 105 190)" />
-
-      {/* Хвост — простой треугольник */}
+      {/* === КЛЮВ — массивный, из 2 секций === */}
       <path
-        d="M 90 245 L 70 280 L 110 275 Z"
-        fill={black}
+        d={`
+          M 126 52
+          C 148 42, 174 42, 186 54
+          C 178 48, 152 46, 126 60
+          Z
+        `}
+        fill={orange}
+      />
+      <path
+        d={`
+          M 126 60
+          C 152 46, 178 48, 186 54
+          C 182 64, 158 68, 126 72
+          Z
+        `}
+        fill={magenta}
+      />
+      {/* Кончик */}
+      <path
+        d="M 182 50 C 192 54, 194 60, 184 66 C 188 60, 188 54, 182 50 Z"
+        fill={tipCol}
       />
 
-      {/* Лапки */}
-      <rect x="118" y="252" width="8" height="18" rx="4" fill={black} />
-      <rect x="138" y="255" width="8" height="15" rx="4" fill={black} />
+      {/* Крыло — каплевидное */}
+      <ellipse cx="62" cy="130" rx="16" ry="30" fill={dark} transform="rotate(-12 62 130)" />
 
-      {/* === ПИЦЦА — треугольный кусок снизу-справа === */}
-      <g transform="translate(190, 195) rotate(-15)">
-        {/* Тень от пиццы */}
-        {variant === "color" && (
-          <ellipse cx="35" cy="75" rx="32" ry="6" fill="rgba(0,0,0,0.08)" />
-        )}
-        {/* Основа — треугольник */}
-        <path
-          d="M 35 5 L 5 75 L 65 75 Z"
-          fill={pizzaBase}
-        />
-        {/* Корочка */}
-        <path
-          d="M 5 75 Q 35 82 65 75 L 65 68 Q 35 75 5 68 Z"
-          fill={pizzaCrust}
-        />
-        {/* Пепперони — кружочки */}
-        <circle cx="30" cy="40" r="6" fill={pepperoni} />
-        <circle cx="42" cy="58" r="5" fill={pepperoni} />
-        <circle cx="22" cy="60" r="4.5" fill={pepperoni} />
+      {/* Хвост */}
+      <path d="M 50 170 L 38 192 L 58 188 Z" fill={dark} />
+
+      {/* Лапки */}
+      <rect x="70" y="182" width="6" height="14" rx="3" fill={dark} />
+      <rect x="82" y="184" width="6" height="12" rx="3" fill={dark} />
+
+      {/* === ПИЦЦА — кусок в зоне клюва/груди === */}
+      <g transform="translate(118, 100) rotate(-22)">
+        <path d="M 20 0 L 0 50 L 40 50 Z" fill={cheese} />
+        <path d="M 0 50 Q 20 57 40 50 L 40 44 Q 20 51 0 44 Z" fill={crustCol} />
+        <circle cx="17" cy="22" r="4.2" fill={topping} />
+        <circle cx="27" cy="36" r="3.5" fill={topping} />
+        <circle cx="11" cy="38" r="3" fill={topping} />
       </g>
     </svg>
   );
