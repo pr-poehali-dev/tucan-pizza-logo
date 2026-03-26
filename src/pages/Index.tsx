@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 const LOGO_URL = "https://cdn.poehali.dev/projects/b1c2d86e-d177-4b8b-a9bc-303b99d73eb3/files/c4fa33d5-95c4-4c11-a208-8337dc2ced27.jpg";
+const LOGO_SIMPLE_URL = "https://cdn.poehali.dev/projects/b1c2d86e-d177-4b8b-a9bc-303b99d73eb3/files/1350b041-113c-482f-ade7-b84e64b2c483.jpg";
 
 const CONFETTI_COLORS = ["#E8211A", "#FF6B35", "#FFD700", "#2ECC40", "#FF69B4", "#00BFFF"];
 
@@ -224,7 +225,7 @@ export default function Index() {
           style={{ transitionDelay: "1s" }}
         >
           <p className="font-nunito text-center text-lg mb-6" style={{ color: "#7B4A1A", fontWeight: 700 }}>
-            Варианты логотипа
+            Детальный логотип
           </p>
           <div className="grid grid-cols-3 gap-4">
             {[
@@ -249,6 +250,65 @@ export default function Index() {
                 <span
                   className="font-nunito text-xs"
                   style={{ color: v.bg === "#FFFFFF" ? "#7B4A1A" : "rgba(255,255,255,0.7)" }}
+                >
+                  {v.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Упрощённый вариант */}
+        <div
+          className={`mt-12 w-full max-w-3xl transition-all duration-700 ${loaded ? "opacity-100" : "opacity-0"}`}
+          style={{ transitionDelay: "1.2s" }}
+        >
+          <div className="flex items-center gap-3 justify-center mb-6">
+            <div className="h-px flex-1 rounded" style={{ background: "#FFD700", maxWidth: 80 }} />
+            <p className="font-nunito text-center text-lg" style={{ color: "#7B4A1A", fontWeight: 700 }}>
+              Упрощённый логотип
+            </p>
+            <div className="h-px flex-1 rounded" style={{ background: "#FFD700", maxWidth: 80 }} />
+          </div>
+
+          {/* Большой показ */}
+          <div className="flex justify-center mb-6">
+            <div
+              className="rounded-3xl p-6 shadow-xl flex flex-col items-center gap-3 transition-transform duration-200 hover:scale-105"
+              style={{ background: "#FFF8E7", border: "3px solid #FFD700", maxWidth: 260 }}
+            >
+              <div className="w-36 h-36 rounded-2xl overflow-hidden shadow-lg">
+                <img src={LOGO_SIMPLE_URL} alt="упрощённый лого" className="w-full h-full object-cover" />
+              </div>
+              <span className="font-pacifico text-xl" style={{ color: "#E8211A" }}>Тукан Пицца</span>
+              <span className="font-nunito text-sm" style={{ color: "#7B4A1A" }}>Flat / Минималистичный</span>
+            </div>
+          </div>
+
+          {/* Три варианта фона */}
+          <div className="grid grid-cols-3 gap-4">
+            {[
+              { bg: "#FFFFFF", label: "Белый фон", border: "2px solid #e5e7eb" },
+              { bg: "#FF6B35", label: "Оранжевый фон", border: undefined },
+              { bg: "#FFD700", label: "Жёлтый фон", border: undefined },
+            ].map((v, i) => (
+              <div
+                key={i}
+                className="rounded-2xl p-4 flex flex-col items-center gap-3 shadow-md transition-transform duration-200 hover:scale-105"
+                style={{ background: v.bg, border: v.border }}
+              >
+                <div className="w-16 h-16 rounded-xl overflow-hidden shadow">
+                  <img src={LOGO_SIMPLE_URL} alt="лого упрощённый" className="w-full h-full object-cover" />
+                </div>
+                <span
+                  className="font-pacifico text-xs"
+                  style={{ color: v.bg === "#FFD700" ? "#1A0A00" : v.bg === "#FFFFFF" ? "#E8211A" : "#FFFFFF" }}
+                >
+                  Тукан Пицца
+                </span>
+                <span
+                  className="font-nunito text-xs"
+                  style={{ color: v.bg === "#FFD700" ? "#7B4A1A" : v.bg === "#FFFFFF" ? "#7B4A1A" : "rgba(255,255,255,0.8)" }}
                 >
                   {v.label}
                 </span>
