@@ -595,6 +595,79 @@ export default function Index() {
           </div>
         </div>
 
+        {/* 🔥 Яркий детский геометрический логотип */}
+        <div
+          className={`mt-12 mb-16 w-full max-w-3xl px-6 transition-all duration-700 ${loaded ? "opacity-100" : "opacity-0"}`}
+          style={{ transitionDelay: "2.4s" }}
+        >
+          <div className="flex items-center gap-3 justify-center mb-6">
+            <div className="h-px flex-1 rounded" style={{ background: "#FF0000", maxWidth: 80 }} />
+            <p className="font-nunito text-center text-lg" style={{ color: "#7B4A1A", fontWeight: 700 }}>
+              🔥 Яркий детский вариант
+            </p>
+            <div className="h-px flex-1 rounded" style={{ background: "#FF0000", maxWidth: 80 }} />
+          </div>
+
+          <div className="flex justify-center mb-6">
+            <div
+              className="relative rounded-[2rem] p-8 flex flex-col items-center gap-5 shadow-2xl transition-transform duration-300 hover:scale-105 animate-float overflow-hidden"
+              style={{
+                background: "linear-gradient(135deg, #FF0000 0%, #FF6B00 40%, #FFE600 100%)",
+                border: "5px solid #1A0A00",
+                width: "clamp(240px, 70vw, 380px)",
+                animationDelay: "0.3s",
+              }}
+            >
+              <div className="absolute top-[-30px] right-[-30px] w-24 h-24 rounded-full opacity-20" style={{ background: "#FFE600" }} />
+              <div className="absolute bottom-[-20px] left-[-20px] w-20 h-20 rounded-full opacity-20" style={{ background: "#FFFFFF" }} />
+
+              <div className="w-52 h-52 rounded-2xl overflow-hidden shadow-2xl" style={{ border: "4px solid #1A0A00" }}>
+                <img
+                  src="https://cdn.poehali.dev/projects/b1c2d86e-d177-4b8b-a9bc-303b99d73eb3/files/14c5e59f-60d3-4a15-a815-e38bb5dae148.jpg"
+                  alt="яркий тукан логотип"
+                  className="w-full h-full object-contain bg-white"
+                />
+              </div>
+
+              <div className="flex flex-col items-center gap-1">
+                <span className="font-pacifico text-3xl" style={{ color: "#FFFFFF", textShadow: "3px 3px 0px #1A0A00" }}>
+                  Тукан Пицца
+                </span>
+                <div className="flex gap-1 text-2xl">
+                  {["🍕","🦜","⭐","🎉"].map((e, i) => (
+                    <span key={i} className="animate-bounce-slow" style={{ animationDelay: `${i * 0.15}s` }}>{e}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-4 gap-3">
+            {[
+              { bg: "#FF0000", label: "Красный", textColor: "#FFE600", subColor: "rgba(255,255,255,0.8)" },
+              { bg: "#FF6B00", label: "Оранжевый", textColor: "#FFFFFF", subColor: "rgba(255,255,255,0.8)" },
+              { bg: "#FFE600", label: "Жёлтый", textColor: "#1A0A00", subColor: "rgba(0,0,0,0.55)" },
+              { bg: "#00C020", label: "Зелёный", textColor: "#FFE600", subColor: "rgba(255,255,255,0.8)" },
+            ].map((v, i) => (
+              <div
+                key={i}
+                className="rounded-2xl p-3 flex flex-col items-center gap-2 shadow-lg transition-transform duration-200 hover:scale-110 cursor-pointer"
+                style={{ background: v.bg, border: "3px solid #1A0A00" }}
+              >
+                <div className="w-14 h-14 rounded-xl overflow-hidden shadow bg-white">
+                  <img
+                    src="https://cdn.poehali.dev/projects/b1c2d86e-d177-4b8b-a9bc-303b99d73eb3/files/14c5e59f-60d3-4a15-a815-e38bb5dae148.jpg"
+                    alt="яркий тукан"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <span className="font-pacifico text-xs leading-tight text-center" style={{ color: v.textColor }}>Тукан Пицца</span>
+                <span className="font-nunito text-xs" style={{ color: v.subColor }}>{v.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
     </div>
   );
 }
