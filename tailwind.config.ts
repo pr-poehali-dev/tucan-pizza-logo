@@ -7,6 +7,7 @@ export default {
 		"./components/**/*.{ts,tsx}",
 		"./app/**/*.{ts,tsx}",
 		"./src/**/*.{ts,tsx}",
+			"./1774505729912012324.html"
 	],
 	prefix: "",
 	theme: {
@@ -17,8 +18,20 @@ export default {
 				'2xl': '1400px'
 			}
 		},
+		fontFamily: {
+			pacifico: ['Pacifico', 'cursive'],
+			nunito: ['Nunito', 'sans-serif'],
+		},
 		extend: {
 			colors: {
+				pizza: {
+					red: '#E8211A',
+					orange: '#FF6B35',
+					yellow: '#FFD700',
+					green: '#2ECC40',
+					dark: '#1A0A00',
+					cream: '#FFF8E7',
+				},
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -88,7 +101,26 @@ export default {
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'bounce-slow': 'bounce 2s infinite',
+				'spin-slow': 'spin 8s linear infinite',
+				'wiggle': 'wiggle 1s ease-in-out infinite',
+				'float': 'float 3s ease-in-out infinite',
+				'pop-in': 'popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
+			},
+			keyframes: {
+				wiggle: {
+					'0%, 100%': { transform: 'rotate(-5deg)' },
+					'50%': { transform: 'rotate(5deg)' },
+				},
+				float: {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-12px)' },
+				},
+				popIn: {
+					'0%': { transform: 'scale(0) rotate(-10deg)', opacity: '0' },
+					'100%': { transform: 'scale(1) rotate(0deg)', opacity: '1' },
+				},
 			}
 		}
 	},
