@@ -536,6 +536,65 @@ export default function Index() {
           </div>
         </div>
 
+        {/* Геометрический логотип из фигур */}
+        <div
+          className={`mt-12 mb-16 w-full max-w-3xl px-6 transition-all duration-700 ${loaded ? "opacity-100" : "opacity-0"}`}
+          style={{ transitionDelay: "2.2s" }}
+        >
+          <div className="flex items-center gap-3 justify-center mb-6">
+            <div className="h-px flex-1 rounded" style={{ background: "#1A0A00", maxWidth: 80 }} />
+            <p className="font-nunito text-center text-lg" style={{ color: "#7B4A1A", fontWeight: 700 }}>
+              Геометрический из фигур 🔷
+            </p>
+            <div className="h-px flex-1 rounded" style={{ background: "#1A0A00", maxWidth: 80 }} />
+          </div>
+
+          <div className="flex flex-col md:flex-row gap-8 items-center justify-center">
+            <div
+              className="flex flex-col items-center gap-4 rounded-3xl p-8 shadow-2xl transition-transform duration-300 hover:scale-105 animate-float"
+              style={{ background: "#F5F5F5", border: "3px solid #1A0A00", width: "clamp(200px, 45vw, 280px)", animationDelay: "0.6s" }}
+            >
+              <div className="w-44 h-44 rounded-2xl overflow-hidden">
+                <img src="https://cdn.poehali.dev/projects/b1c2d86e-d177-4b8b-a9bc-303b99d73eb3/files/0d2645c6-d91e-45a0-ae5f-52fe06290a67.jpg" alt="геометрический тукан" className="w-full h-full object-contain" />
+              </div>
+              <span className="font-pacifico text-2xl" style={{ color: "#1A0A00" }}>Тукан Пицца</span>
+              <span className="font-nunito text-sm" style={{ color: "#7B4A1A" }}>Геометрический стиль</span>
+            </div>
+
+            <div
+              className="flex flex-col items-center gap-4 rounded-3xl p-8 shadow-2xl transition-transform duration-300 hover:scale-105 animate-float"
+              style={{ background: "#1A0A00", border: "3px solid #FF6B35", width: "clamp(200px, 45vw, 280px)", animationDelay: "0.9s" }}
+            >
+              <div className="w-44 h-44 rounded-2xl overflow-hidden">
+                <img src="https://cdn.poehali.dev/projects/b1c2d86e-d177-4b8b-a9bc-303b99d73eb3/files/0d2645c6-d91e-45a0-ae5f-52fe06290a67.jpg" alt="геометрический тукан тёмный" className="w-full h-full object-contain" />
+              </div>
+              <span className="font-pacifico text-2xl" style={{ color: "#FF6B35" }}>Тукан Пицца</span>
+              <span className="font-nunito text-sm" style={{ color: "rgba(255,255,255,0.6)" }}>На тёмном фоне</span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-4 gap-3 mt-6">
+            {[
+              { bg: "#FFFFFF", label: "Белый", border: "2px solid #e5e7eb", textColor: "#1A0A00", subColor: "#7B4A1A" },
+              { bg: "#FF6B35", label: "Оранжевый", border: undefined, textColor: "#FFFFFF", subColor: "rgba(255,255,255,0.8)" },
+              { bg: "#FFD700", label: "Жёлтый", border: undefined, textColor: "#1A0A00", subColor: "rgba(0,0,0,0.5)" },
+              { bg: "#1A0A00", label: "Тёмный", border: undefined, textColor: "#FFD700", subColor: "rgba(255,255,255,0.6)" },
+            ].map((v, i) => (
+              <div
+                key={i}
+                className="rounded-2xl p-3 flex flex-col items-center gap-2 shadow-md transition-transform duration-200 hover:scale-105 cursor-pointer"
+                style={{ background: v.bg, border: v.border }}
+              >
+                <div className="w-14 h-14 rounded-xl overflow-hidden">
+                  <img src="https://cdn.poehali.dev/projects/b1c2d86e-d177-4b8b-a9bc-303b99d73eb3/files/0d2645c6-d91e-45a0-ae5f-52fe06290a67.jpg" alt="тукан геом" className="w-full h-full object-contain" />
+                </div>
+                <span className="font-pacifico text-xs leading-tight text-center" style={{ color: v.textColor }}>Тукан Пицца</span>
+                <span className="font-nunito text-xs" style={{ color: v.subColor }}>{v.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
     </div>
   );
 }
